@@ -41,9 +41,23 @@ desktop.
 
 ### 1. Download the release (recommended)
 
-Download `pub2pdf.exe` (or Mac/Linux equivalent) from the
-[latest release](https://github.com/rdawebb/pub2pdf/releases/latest) and copy it
-into the folder with your Publisher files. Nothing else is needed.
+Download the file for your platform from the
+[latest release](https://github.com/rdawebb/pub2pdf/releases/latest):
+
+| Computer                     | Download                     |
+| ---------------------------- | ---------------------------- |
+| Windows                      | `pub2pdf.exe`                |
+| Windows on ARM               | `pub2pdf-arm64.exe`          |
+| Mac with Apple silicon (M1+) | `pub2pdf-mac.tar.gz`         |
+| Intel Mac                    | `pub2pdf-mac-intel.tar.gz`   |
+| Linux                        | `pub2pdf-linux.tar.gz`       |
+| Linux on ARM                 | `pub2pdf-linux-arm64.tar.gz` |
+
+The Mac and Linux downloads are archives, so they keep the program's permission to
+run. Double-click to extract (or `tar xzf <file>`), and the program inside is ready
+to use as is.
+
+Copy the program into the folder with your Publisher files. Nothing else is needed.
 
 ### 2. `go install`
 
@@ -95,6 +109,19 @@ your PC — Microsoft Defender SmartScreen prevented an unrecognised app from st
 In that case click **More info → Run anyway**. It should only be asked once per
 copy of the file, if at all, but in most cases it downloads and works just fine and
 this isn't a concern.
+
+## First run on macOS
+
+The Mac program isn't notarised by Apple, so the first launch of a downloaded copy
+is blocked with **"pub2pdf-mac" cannot be opened**. Click **Done**, then open
+**System Settings → Privacy & Security** and click **Open Anyway** next to the
+message about `pub2pdf-mac`. This is only needed once per copy.
+
+Alternatively, clear the download flag in Terminal before running it:
+
+```sh
+xattr -d com.apple.quarantine pub2pdf-mac
+```
 
 ## Usage
 

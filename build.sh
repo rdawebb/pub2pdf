@@ -27,8 +27,10 @@ if [ "$os" = windows ]; then
     ARM_FLAG=""
     [ "$arch" = arm64 ] && ARM_FLAG="-arm"
 
+    # The tool runs here, so build it for the host, not an exported $GOOS/$GOARCH
     # shellcheck disable=SC2086 # deliberate word splitting: no icon means no flag
-    go run github.com/josephspurrier/goversioninfo/cmd/goversioninfo@v1.7.0 \
+    GOOS=$(go env GOHOSTOS) GOARCH=$(go env GOHOSTARCH) \
+        go run github.com/josephspurrier/goversioninfo/cmd/goversioninfo@v1.7.0 \
         -64 \
         $ARM_FLAG \
         -manifest=pub2pdf.manifest \
