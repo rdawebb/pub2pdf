@@ -30,3 +30,14 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# Dev
+dev/
+
+# Binaries
+pub2pdf.exe
+pub2pdf-mac
+pub2pdf-linux
+
+# macOS
+.DS_Store
